@@ -15,6 +15,9 @@
         app:tabIndicatorGravity="center"
         app:tabIndicatorFullWidth="true"
         app:tabTextColor="@color/black"
+        app:tabIndicatorHeight="40dp"
+        app:tabIndicatorColor="#009688"
+        app:tabBackground="@drawable/tab_indicator"
         />
     <androidx.viewpager.widget.ViewPager
         android:layout_width="match_parent"
