@@ -38,7 +38,23 @@ public class MainActivity extends AppCompatActivity {
         != PackageManager.PERMISSION_GRANTED){
             ActivityCompat.requestPermissions(MainActivity.this,new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},REQUEST_CODE);
         }else{
-            Toast.makeText(this,"Permissions",Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Permissions Granted",Toast.LENGTH_LONG).show();
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestcode,@NonNull String[] permissions,@NonNull int[] grantResult){
+        super.onRequestPermissionsResult(requestcode,permissions,grantResult);
+
+        if (requestcode==REQUEST_CODE){
+            if (grantResult[0]==PackageManager.PERMISSION_GRANTED)
+            {
+                Toast.makeText(this,"Permissions Granted",Toast.LENGTH_LONG).show();
+
+            }else{
+                ActivityCompat.requestPermissions(MainActivity.this,new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},REQUEST_CODE);
+
+            }
         }
     }
 
