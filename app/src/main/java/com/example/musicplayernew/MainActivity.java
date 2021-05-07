@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initViewPager();
+
 
         permission();
 
@@ -43,8 +43,10 @@ public class MainActivity extends AppCompatActivity {
         != PackageManager.PERMISSION_GRANTED){
             ActivityCompat.requestPermissions(MainActivity.this,new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},REQUEST_CODE);
         }else{
-            Toast.makeText(this,"Permissions Granted",Toast.LENGTH_LONG).show();
+          //  Toast.makeText(this,"Permissions Granted",Toast.LENGTH_LONG).show();
+
             musicFiles=getAllAudio(this);
+            initViewPager();
         }
     }
 
@@ -55,8 +57,10 @@ public class MainActivity extends AppCompatActivity {
         if (requestcode==REQUEST_CODE){
             if (grantResult[0]==PackageManager.PERMISSION_GRANTED)
             {
-                Toast.makeText(this,"Permissions Granted",Toast.LENGTH_LONG).show();
+               // Toast.makeText(this,"Permissions Granted",Toast.LENGTH_LONG).show();
                 musicFiles=getAllAudio(this);
+
+                initViewPager();
 
             }else{
                 ActivityCompat.requestPermissions(MainActivity.this,new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},REQUEST_CODE);
